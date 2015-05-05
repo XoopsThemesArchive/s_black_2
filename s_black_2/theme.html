@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta name="generator" content="XOOPS" />
+<title><{$xoops_pagetitle}> - <{$xoops_sitename}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_themecss}>" />
+<!-- RMV: added module header -->
+<{$xoops_module_header}>
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+</head>
+
+<body>
+<table id="margin" cellspacing="0"><tr><td>
+<table id="waku" cellspacing="0"><tr><td>
+<div id="container">
+
+<!-- ヘッダ部分の定義 -->
+<table cellspacing="0">
+	<tr>
+		<td id="headerbar">
+		</td><td id="head"><table cellspacing="0"><tr><td id="uname"><a href="<{$xoops_url}>/modules/contact/"><img src="<{$xoops_imageurl}>dot.gif">contact_us</a>&nbsp;&nbsp;<a href="<{$xoops_url}>/modules/sitemap/"><img src="<{$xoops_imageurl}>dot.gif">sitemap</a></td></tr></table></td>
+	</tr>
+	<tr>
+		<td id="headerlogo">
+			<a href="<{$xoops_url}>/"><img src="<{$xoops_imageurl}>logo.gif" alt="" /></a>
+		</td>
+		<td id="headerbanner"></td>
+	</tr>
+	<tr>
+		<td id="headerbar">
+		</td><td id="head"><!--ログインしたら-->
+<{if $xoops_isuser}>
+<table cellspacing="0"><tr><td id="uname"><a href="<{$xoops_url}>/user.php"><img src="<{$xoops_imageurl}>dot.gif">ようこそ<{$xoops_uname}>さん！</a></td></tr></table>
+<{else}><{/if}></td>
+	</tr>
+</table>
+<!-- ヘッダ部分終わり -->
+
+<table cellspacing="0">
+	<tr>
+<!-- 左ブロック部分の定義 -->
+        <{if $xoops_showlblock == 1}>
+		<td id="leftcolumn">
+			<{foreach item=block from=$xoops_lblocks}>
+			<{if $block.title|regex_replace:"/.*none/":"none"ne"none"}>
+				<div class="blockTitle"><{$block.title}></div>
+			<{/if}>
+				<div class="blockContent"><{$block.content}></div>
+			<{/foreach}>
+		</td>
+	<{/if}>
+<!-- 左ブロック終わり -->
+<!-- メイン部分の定義 -->
+		<td id="centercolumn">
+		<{if $xoops_showcblock == 1}>
+		<table cellspacing="0">
+			<tr>
+  <!-- 中央-中央ブロック部分の定義 -->
+				<td id="centerCcolumn" colspan="2">
+					<{foreach item=block from=$xoops_ccblocks}>
+			<{if $block.title|regex_replace:"/.*none/":"none"ne"none"}>
+						<div class="blockTitle"><img src="<{$xoops_imageurl}>dot.gif">
+						<{$block.title}></div>
+			<{/if}>
+						<div class="blockContent"><{$block.content}></div>
+					<{/foreach}>
+				</td>
+  <!-- 中央-中央ブロック部分終わり -->
+			</tr>
+			<tr>
+  <!-- 中央-左ブロック部分の定義 -->
+				<td id="centerLcolumn">
+					<{foreach item=block from=$xoops_clblocks}>
+			<{if $block.title|regex_replace:"/.*none/":"none"ne"none"}>
+						<div class="blockTitle"><img src="<{$xoops_imageurl}>dot.gif">
+						<{$block.title}></div>
+			<{/if}>
+						<div class="blockContent"><{$block.content}></div>
+					<{/foreach}>
+				</td>
+  <!-- 中央-左ブロック部分終わり -->
+  <!-- 中央-右ブロック部分の定義 -->
+				<td id="centerRcolumn">
+					<{foreach item=block from=$xoops_crblocks}>
+			<{if $block.title|regex_replace:"/.*none/":"none"ne"none"}>
+						<div class="blockTitle"><img src="<{$xoops_imageurl}>dot.gif">
+						<{$block.title}></div>
+			<{/if}>
+						<div class="blockContent"><{$block.content}></div>
+					<{/foreach}>
+				</td>
+  <!-- 中央-右ブロック部分終わり -->
+			</tr>
+		</table>
+		<{/if}>
+
+  <!-- メインコンテンツ -->
+			<div id="content"><{$xoops_contents}></div>
+		</td>
+<!-- メイン部分終わり -->
+
+
+	</tr>
+</table>
+<!-- フッタ部分の定義 -->
+<table cellspacing="0">
+	<tr>
+		<td id="footerbar"><{$xoops_footer}>
+&nbsp;&nbsp;Theme Designed by <a href="http://portal.expiece.com/" target="_blank">EXTRAFFIC</a>
+
+		</td>
+	</tr>
+</table>
+<!-- フッタ部分終わり -->
+</div>
+</td></tr></table></td>
+<!-- 右ブロック部分の定義 -->
+      <{if $xoops_showrblock == 1}>
+		<td id="rightcolumn">
+			<{foreach item=block from=$xoops_rblocks}>
+			<{if $block.title|regex_replace:"/.*none/":"none"ne"none"}>
+				<div class="blockTitle"><{$block.title}></div>
+			<{/if}>
+				<div class="blockContent"><{$block.content}></div>
+			<{/foreach}>
+	</td>
+	<{/if}>
+<!-- 右ブロック部分終わり -->
+</tr>
+</table>
+</body>
+</html>
